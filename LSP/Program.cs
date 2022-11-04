@@ -14,7 +14,7 @@ s.Height = 4;
 s.Base = 8;
 s.Radius = 5;
 
-s.CircleCalculater(s);
+s.AreaCalculater(s);
 
 
 
@@ -101,14 +101,14 @@ public  class Shape
     public int Base { get; set; }
     public int Radius { get; set; }
     public const double Pai = 3.14;
-    public void AreaCalculater(Shape s) { Console.WriteLine("the area equal is "); }
+    public virtual void AreaCalculater(Shape s) { Console.WriteLine("the area equal is "); }
 
 }
 
 
 public class Rectangle : Shape
 {
-    public  void AreaCalculater(Shape s)
+    public override void AreaCalculater(Shape s)
     {
         Console.WriteLine($"Area is : {s.Width * s.Height}");
     }
@@ -116,7 +116,7 @@ public class Rectangle : Shape
 
 public class Triangle : Shape
 {
-    public  void TriangleCalculater(Shape s)
+    public override void AreaCalculater(Shape s)
     {
         Console.WriteLine($"Area is : { .5 * s.Base * s.Height}");
     }
@@ -124,20 +124,20 @@ public class Triangle : Shape
 
 public class Square : Shape
 {
-    public  void SquareCalculater(Shape s)
+    public override void AreaCalculater(Shape s)
     {
         Console.WriteLine($"Area is : {s.Width * s.Width}");
     }
 
 }
 
-public class Circle : Shape
+public  class Circle : Shape
 {
 
-    public  void CircleCalculater(Shape s)
+    public override void AreaCalculater(Shape s)
     {
 
-        Console.WriteLine($"Area is : { .5 * s.Radius * s.Radius * Pai}");
+        Console.WriteLine($"Area is : { .5 * (s.Radius * s.Radius) * Pai}");
     }
 }
 #endregion

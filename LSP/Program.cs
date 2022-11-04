@@ -7,6 +7,16 @@ Console.WriteLine("Hello, World!");
 //x.Add(1);
 //IMyCollection myCollection = new MyReadOnlyCollection();
 //myCollection.Add(2);
+ 
+Shape s= new Circle();
+s.Width = 3;
+s.Height = 4;
+s.Base = 8;
+s.Radius = 5;
+
+s.CircleCalculater(s);
+
+
 
 
 
@@ -15,7 +25,7 @@ Console.WriteLine("Hello, World!");
 #region first Example
 public class Student
 {
-    public virtual  void ReadBook()
+    public virtual void ReadBook()
     {
         Console.WriteLine("Waseem .....");
     }
@@ -54,12 +64,13 @@ public interface IMyCollection
 
 public class MyReadOnlyCollection : IMyCollection
 {
-   
+
 
     public MyReadOnlyCollection()
     {
-       
+
     }
+
     public void Add(int item)
     {
         throw new NotImplementedException();
@@ -76,4 +87,57 @@ public class MyReadOnlyCollection : IMyCollection
     }
 }
 
+#endregion
+
+
+
+#region Thired Example
+
+
+public  class Shape
+{
+    public int Height { get; set; }
+    public int Width { get; set; }
+    public int Base { get; set; }
+    public int Radius { get; set; }
+    public const double Pai = 3.14;
+    public void AreaCalculater(Shape s) { Console.WriteLine("the area equal is "); }
+
+}
+
+
+public class Rectangle : Shape
+{
+    public  void AreaCalculater(Shape s)
+    {
+        Console.WriteLine($"Area is : {s.Width * s.Height}");
+    }
+}
+
+public class Triangle : Shape
+{
+    public  void TriangleCalculater(Shape s)
+    {
+        Console.WriteLine($"Area is : { .5 * s.Base * s.Height}");
+    }
+}
+
+public class Square : Shape
+{
+    public  void SquareCalculater(Shape s)
+    {
+        Console.WriteLine($"Area is : {s.Width * s.Width}");
+    }
+
+}
+
+public class Circle : Shape
+{
+
+    public  void CircleCalculater(Shape s)
+    {
+
+        Console.WriteLine($"Area is : { .5 * s.Radius * s.Radius * Pai}");
+    }
+}
 #endregion

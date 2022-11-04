@@ -3,11 +3,16 @@ using System.Collections;
 
 Console.WriteLine("Hello, World!");
 
-Student x = new Student();
-x.Add(1);
+//Student x = new Read();
+//x.Add(1);
+//IMyCollection myCollection = new MyReadOnlyCollection();
+//myCollection.Add(2);
 
 
 
+
+
+#region first Example
 public class Student
 {
     public virtual  void ReadBook()
@@ -33,3 +38,42 @@ public class Read : Student
 
 }
 
+#endregion
+
+
+
+
+#region Second Example
+
+public interface IMyCollection
+{
+    void Add(int item);
+    void Remove(int item);
+    int Get(int idex);
+}
+
+public class MyReadOnlyCollection : IMyCollection
+{
+   
+
+    public MyReadOnlyCollection()
+    {
+       
+    }
+    public void Add(int item)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int Get(int index)
+    {
+        return 1;
+    }
+
+    public void Remove(int item)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+#endregion
